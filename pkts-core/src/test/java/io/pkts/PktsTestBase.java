@@ -140,6 +140,11 @@ public class PktsTestBase {
     public void tearDown() throws Exception {
     }
 
+    public Buffer loadStreamAsBuffer(final String streamName) {
+        final InputStream stream = PktsTestBase.class.getResourceAsStream(streamName);
+        return Buffers.wrap(stream);
+    }
+
     public List<Packet> loadStream(final String streamName) throws Exception {
         final InputStream stream = PktsTestBase.class.getResourceAsStream(streamName);
         return loadStream(stream);
